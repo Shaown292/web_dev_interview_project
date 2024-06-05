@@ -9,6 +9,7 @@ class LogInScreenController extends GetxController {
   TextEditingController emailTextController = TextEditingController();
   TextEditingController passwordTextController = TextEditingController();
   RxBool isLoading = false.obs;
+  RxBool makePassVisible = false.obs;
 
   Future<void> loginUser(String username, String password) async {
 

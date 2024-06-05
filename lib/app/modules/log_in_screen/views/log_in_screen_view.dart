@@ -51,16 +51,30 @@ class LogInScreenView extends GetView<LogInScreenController> {
                 prefixIcon: "assets/images/email.png",
                 prefixIconPadding: 0,
                 scale: 0.85,
-
               ),
               const SizedBox(
                 height: 20,
               ),
-              CustomTextFormField(
-                controller: controller.passwordTextController,
-                hintText: "Password",
-                prefixIcon: "assets/images/password.png",
-                suffixIcon: Image.asset("assets/images/eyes.png"),
+              Obx(
+                () => CustomTextFormField(
+                  controller: controller.passwordTextController,
+                  hintText: "Password",
+                  prefixIcon: "assets/images/password.png",
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      controller.makePassVisible.value = !controller.makePassVisible.value ;
+                      print(controller.makePassVisible.value);
+                    },
+                    child: controller.makePassVisible.value == true
+                        ? const Icon(
+                            Icons.remove_red_eye,
+                            color: AppColors.iconColor,
+                          )
+                        : Image.asset("assets/images/eyes.png"),
+                  ),
+                  obsCureText:
+                      controller.makePassVisible.value == true ? false : true,
+                ),
               ),
               const SizedBox(
                 height: 20,
@@ -75,20 +89,26 @@ class LogInScreenView extends GetView<LogInScreenController> {
               const SizedBox(
                 height: 50,
               ),
-            Obx(() => controller.isLoading.value == true ? const SizedBox(
-              width: 60,
-              height: 60,
-              child: CircularProgressIndicator(
-                color: AppColors.logInButtonColor,
+              Obx(
+                () => controller.isLoading.value == true
+                    ? const SizedBox(
+                        width: 60,
+                        height: 60,
+                        child: CircularProgressIndicator(
+                          color: AppColors.logInButtonColor,
+                        ),
+                      )
+                    : CustomButton(
+                        onTap: () => controller.loginUser(
+                            controller.emailTextController.text.toString(),
+                            controller.passwordTextController.text.toString()),
+                        color: AppColors.logInButtonColor,
+                        height: 60,
+                        width: Get.width,
+                        text: DynamicText.logIn,
+                        textStyle: AppTextStyle.robotoWhiteTextW500Size17,
+                      ),
               ),
-            ) :  CustomButton(
-              onTap: () => controller.loginUser(controller.emailTextController.text.toString(), controller.passwordTextController.text.toString()),
-              color: AppColors.logInButtonColor,
-              height: 60,
-              width: Get.width,
-              text: DynamicText.logIn,
-              textStyle: AppTextStyle.robotoWhiteTextW500Size17,
-            ),),
               const SizedBox(
                 height: 50,
               ),
@@ -118,7 +138,7 @@ class LogInScreenView extends GetView<LogInScreenController> {
                 height: 50,
               ),
               InkWell(
-                onTap: ()=> Get.toNamed(Routes.REGISTRATION_SCREEN),
+                onTap: () => Get.toNamed(Routes.REGISTRATION_SCREEN),
                 child: Text(
                   DynamicText.createNewAccount,
                   style: AppTextStyle.robotoBlackTextW300Size17,
