@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:web_dev_interview_project/app/data/app_colors.dart';
+import 'package:web_dev_interview_project/app/modules/registration_screen/views/registration_screen_view.dart';
+import 'package:web_dev_interview_project/app/routes/app_pages.dart';
 import 'package:web_dev_interview_project/constant/app_text_styles.dart';
 import 'package:web_dev_interview_project/constant/dynamicText.dart';
 import 'package:web_dev_interview_project/widgets/customTextFormField.dart';
@@ -47,6 +49,9 @@ class LogInScreenView extends GetView<LogInScreenController> {
                 controller: controller.emailTextController,
                 hintText: "Email",
                 prefixIcon: "assets/images/email.png",
+                prefixIconPadding: 0,
+                scale: 0.85,
+
               ),
               const SizedBox(
                 height: 20,
@@ -77,6 +82,41 @@ class LogInScreenView extends GetView<LogInScreenController> {
                 width: Get.width,
                 text: DynamicText.logIn,
                 textStyle: AppTextStyle.robotoWhiteTextW500Size17,
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  CustomButton(
+                    onTap: () {},
+                    color: Colors.white,
+                    height: 56,
+                    width: 56,
+                    image: Image.asset("assets/images/facebook.png"),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  CustomButton(
+                    onTap: () {},
+                    color: Colors.white,
+                    height: 56,
+                    width: 56,
+                    image: Image.asset("assets/images/google.png"),
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              InkWell(
+                onTap: ()=> Get.toNamed(Routes.REGISTRATION_SCREEN),
+                child: Text(
+                  DynamicText.createNewAccount,
+                  style: AppTextStyle.robotoBlackTextW300Size17,
+                ),
               ),
             ],
           ),

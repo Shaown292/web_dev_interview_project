@@ -18,5 +18,8 @@ class AppTextStyle {
   static TextStyle robotoWhiteTextW500Size17 = GoogleFonts.roboto(
     textStyle:  const TextStyle(color: Colors.white, fontSize: 17, fontWeight: FontWeight.w500),
   );
+  static TextStyle robotoBlackTextW300Size17 = GoogleFonts.roboto(
+    textStyle:  const TextStyle(color: AppColors.createAccountTextColor, fontSize: 17, fontWeight: FontWeight.w300),
+  );
 
 }
