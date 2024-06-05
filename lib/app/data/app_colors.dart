@@ -5,6 +5,7 @@ class AppColors {
   static const hintTextColor       = Color(0xFFA4A9AF);
   static const logInButtonColor       = Color(0xFFF75F55);
   static const createAccountTextColor       = Color(0xFF383C40);
+  static const logInColor       = Color(0xFF2893E3);
 
 
 }

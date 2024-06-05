@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:web_dev_interview_project/app/data/app_colors.dart';
 import 'package:web_dev_interview_project/app/modules/registration_screen/controller/registration_screen_controller.dart';
+import 'package:web_dev_interview_project/app/routes/app_pages.dart';
 import 'package:web_dev_interview_project/constant/app_text_styles.dart';
 import 'package:web_dev_interview_project/constant/dynamicText.dart';
 import 'package:web_dev_interview_project/widgets/customTextFormField.dart';
@@ -86,8 +87,8 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                   ),
                 ],
               ),
-              SizedBox(
-                height: Get.height * 0.1,
+              const SizedBox(
+                height: 40,
               ),
               CustomTextFormField(
                 controller: controller.nameTextController,
@@ -160,7 +161,26 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                 ],
               ),
               const SizedBox(
-                height: 50,
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    DynamicText.alreadyHaveAnAccount,
+                    style: AppTextStyle.robotoBlackTextW300Size17,
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  InkWell(
+                    onTap: () => Get.toNamed(Routes.LOG_IN_SCREEN),
+                    child: Text(
+                      DynamicText.logIn,
+                      style: AppTextStyle.robotoBlueTextW700Size17,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

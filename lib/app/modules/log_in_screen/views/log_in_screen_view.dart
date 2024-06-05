@@ -75,14 +75,20 @@ class LogInScreenView extends GetView<LogInScreenController> {
               const SizedBox(
                 height: 50,
               ),
-              CustomButton(
-                onTap: () {},
+            Obx(() => controller.isLoading.value == true ? const SizedBox(
+              width: 60,
+              height: 60,
+              child: CircularProgressIndicator(
                 color: AppColors.logInButtonColor,
-                height: 60,
-                width: Get.width,
-                text: DynamicText.logIn,
-                textStyle: AppTextStyle.robotoWhiteTextW500Size17,
               ),
+            ) :  CustomButton(
+              onTap: () => controller.loginUser(controller.emailTextController.text.toString(), controller.passwordTextController.text.toString()),
+              color: AppColors.logInButtonColor,
+              height: 60,
+              width: Get.width,
+              text: DynamicText.logIn,
+              textStyle: AppTextStyle.robotoWhiteTextW500Size17,
+            ),),
               const SizedBox(
                 height: 50,
               ),
