@@ -9,7 +9,6 @@ import 'package:web_dev_interview_project/constant/dynamicText.dart';
 import 'package:web_dev_interview_project/widgets/customTextFormField.dart';
 import 'package:web_dev_interview_project/widgets/custom_button.dart';
 
-
 class RegistrationScreenView extends GetView<RegistrationScreenController> {
   const RegistrationScreenView({super.key});
 
@@ -44,13 +43,16 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                           blurRadius: 4,
                           // blur radius
                           offset:
-                          const Offset(0, 3), // changes position of shadow
+                              const Offset(0, 3), // changes position of shadow
                         ),
                         //you can set more BoxShadow() here
                       ],
                     ),
                     child: Center(
-                      child: Image.asset("assets/images/person.png", scale: 0.7,),
+                      child: Image.asset(
+                        "assets/images/person.png",
+                        scale: 0.7,
+                      ),
                     ),
                   ),
                   Positioned(
@@ -59,7 +61,7 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                     child: Container(
                       height: 35,
                       width: 35,
-                      decoration:  BoxDecoration(
+                      decoration: BoxDecoration(
                         gradient: const LinearGradient(
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
@@ -76,8 +78,8 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                             //spread radius
                             blurRadius: 23,
                             // blur radius
-                            offset:
-                            const Offset(0, 14), // changes position of shadow
+                            offset: const Offset(
+                                0, 14), // changes position of shadow
                           ),
                         ],
                         shape: BoxShape.circle,
@@ -113,6 +115,7 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                 controller: controller.passwordTextController,
                 hintText: "Password",
                 prefixIcon: "assets/images/password.png",
+                obsCureText: true,
               ),
               const SizedBox(
                 height: 20,
@@ -121,23 +124,41 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                 controller: controller.confirmPasswordTextController,
                 hintText: "Confirm Password",
                 prefixIcon: "assets/images/password.png",
-              ),
-
-              const SizedBox(
-                height: 50,
-              ),
-              CustomButton(
-                onTap: () {},
-                color: AppColors.logInButtonColor,
-                height: 60,
-                width: Get.width,
-                text: DynamicText.signUp,
-                textStyle: AppTextStyle.robotoWhiteTextW500Size17,
+                obsCureText: true,
               ),
               const SizedBox(
                 height: 50,
               ),
-
+              Obx(
+                () => controller.isLoading.value == true
+                    ? const SizedBox(
+                  width: 60,
+                  height: 60,
+                  child: CircularProgressIndicator(
+                    color: AppColors.logInButtonColor,
+                  ),
+                )
+                    : CustomButton(
+                        onTap: () {
+                          controller.register(
+                            username:
+                                controller.nameTextController.text.toString(),
+                            email:
+                                controller.emailTextController.text.toString(),
+                            password: controller.passwordTextController.text
+                                .toString(),
+                          );
+                        },
+                        color: AppColors.logInButtonColor,
+                        height: 60,
+                        width: Get.width,
+                        text: DynamicText.signUp,
+                        textStyle: AppTextStyle.robotoWhiteTextW500Size17,
+                      ),
+              ),
+              const SizedBox(
+                height: 50,
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

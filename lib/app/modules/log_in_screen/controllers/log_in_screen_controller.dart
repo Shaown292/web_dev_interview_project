@@ -16,11 +16,10 @@ class LogInScreenController extends GetxController {
 
       isLoading.value = true;
 
-      // Making the API call
       http.Response response = await http.post(
         Uri.parse("https://apptest.dokandemo.com/wp-json/jwt-auth/v1/token?username=$username&password=$password"),
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded', // Specify the content type as JSON
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
       );
 
@@ -30,7 +29,6 @@ class LogInScreenController extends GetxController {
         isLoading.value = false;
       } else {
 
-        print('Login failed');
         isLoading.value = false;
         Get.snackbar("Log in Failed", "wrong user name or password");
       }
