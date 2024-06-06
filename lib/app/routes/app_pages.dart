@@ -6,13 +6,15 @@ import '../modules/log_in_screen/bindings/log_in_screen_binding.dart';
 import '../modules/log_in_screen/views/log_in_screen_view.dart';
 import '../modules/registration_screen/bindings/registration_screen_bindings.dart';
 import '../modules/registration_screen/views/registration_screen_view.dart';
+import '../modules/splash_screen/bindings/splash_screen_binding.dart';
+import '../modules/splash_screen/views/splash_screen_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOG_IN_SCREEN;
+  static const INITIAL = Routes.SPLASH_SCREEN;
 
   static final routes = [
     GetPage(
@@ -29,6 +31,11 @@ class AppPages {
       name: _Paths.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: _Paths.SPLASH_SCREEN,
+      page: () => const SplashScreenView(),
+      binding: SplashScreenBinding(),
     ),
   ];
 }
