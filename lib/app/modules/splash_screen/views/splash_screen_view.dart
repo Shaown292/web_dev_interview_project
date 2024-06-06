@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:web_dev_interview_project/app/data/app_colors.dart';
 
 import '../controllers/splash_screen_controller.dart';
 

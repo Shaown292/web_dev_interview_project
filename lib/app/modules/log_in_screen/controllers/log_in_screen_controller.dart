@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -26,14 +25,14 @@ class LogInScreenController extends GetxController {
       );
 
       if (response.statusCode == 200) {
-
-        print('Login successful');
-
+        Get.snackbar("Welcome", "Log in successfully");
+        Get.offNamed("/home");
         isLoading.value = false;
       } else {
 
         print('Login failed');
         isLoading.value = false;
+        Get.snackbar("Log in Failed", "wrong user name or password");
       }
     } catch (error) {
 
