@@ -18,6 +18,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
             CurvedAnimation(
               parent: controller.animationController!,
               curve: Curves.easeInOut,
+
             ),
           ),
           child: Image.asset("assets/images/dokanLogo.png", scale: 4,),
