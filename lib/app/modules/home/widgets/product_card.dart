@@ -46,21 +46,21 @@ class ProductCard extends StatelessWidget {
                 SizedBox(
                     height: 30,
                     child: Text(
-                      productName ?? "Product Namasdhjashdkjahskjde",
+                      productName ?? "",
                       style: AppTextStyle.robotoBlackTextW400Size16,
                       overflow: TextOverflow.ellipsis,
                     )),
                 Row(
                   children: [
                     Text(
-                      productName ?? "\$150",
+                      "\$ $originalPrice" ,
                       style: AppTextStyle.latoLightGreyTextW400Size15,
                     ),
                     const SizedBox(
                       width: 10,
                     ),
                     Text(
-                      productName ?? "\$50",
+                      "\$ $discountPrice" ,
                       style: AppTextStyle.robotoBlackTextW700Size18,
                     ),
                   ],

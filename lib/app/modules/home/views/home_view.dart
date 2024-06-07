@@ -16,6 +16,7 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(HomeController());
     final List<String> imageUrls = [
       'https://cdn.photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg',
       'https://via.placeholder.com/150',
@@ -119,31 +120,36 @@ class HomeView extends GetView<HomeController> {
 
               /// Product show
 
-              SizedBox(
-                height: Get.height - 100,
-                child: GridView.builder(
-                  shrinkWrap: true,
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2, // Number of columns
-                    crossAxisSpacing: 4.0,
-                    mainAxisSpacing: 4.0,
-                    childAspectRatio: 0.5,
+              Obx(
+                () => SizedBox(
+                  height: Get.height - 100,
+                  child: GridView.builder(
+                    shrinkWrap: true,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, // Number of columns
+                      crossAxisSpacing: 4.0,
+                      mainAxisSpacing: 4.0,
+                      childAspectRatio: 0.5,
+                    ),
+                    itemCount: controller.dataList.length,
+                    itemBuilder: (context, index) {
+                      return ProductCard(
+                        image: controller.dataList[index].images?[0].src,
+                        productName: controller.dataList[index].name,
+                        originalPrice: controller.dataList[index].price,
+                        discountPrice: controller.dataList[index].salePrice,
+                        // numberOfStars: int.parse(controller.dataList[index].averageRating!) ,
+                        numberOfStars: 4,
+                      );
+                    },
                   ),
-                  itemCount: imageUrls.length,
-                  itemBuilder: (context, index) {
-                    return ProductCard(
-                      image: imageUrls[index],
-                      numberOfStars: 3,
-                    );
-                  },
                 ),
               ),
-
             ],
           ),
         ),
       ),
-
     );
   }
 }

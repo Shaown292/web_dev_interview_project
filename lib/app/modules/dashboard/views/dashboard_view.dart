@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -42,6 +41,8 @@ class DashboardView extends GetView<DashboardController> {
     ];
     return PersistentTabView(
       tabs: _tabs(),
+      navBarHeight: 80,
+      resizeToAvoidBottomInset: true,
       navBarBuilder: (navBarConfig) => Style3BottomNavBar(
         navBarConfig: navBarConfig,
         navBarDecoration:  NavBarDecoration(
