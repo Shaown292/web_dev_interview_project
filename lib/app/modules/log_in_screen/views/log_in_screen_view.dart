@@ -5,7 +5,7 @@ import 'package:web_dev_interview_project/app/data/app_colors.dart';
 import 'package:web_dev_interview_project/app/modules/registration_screen/views/registration_screen_view.dart';
 import 'package:web_dev_interview_project/app/routes/app_pages.dart';
 import 'package:web_dev_interview_project/constant/app_text_styles.dart';
-import 'package:web_dev_interview_project/constant/dynamicText.dart';
+import 'package:web_dev_interview_project/constant/static_text.dart';
 import 'package:web_dev_interview_project/widgets/customTextFormField.dart';
 import 'package:web_dev_interview_project/widgets/custom_button.dart';
 
@@ -39,7 +39,7 @@ class LogInScreenView extends GetView<LogInScreenController> {
                 height: Get.height * 0.1,
               ),
               Text(
-                DynamicText.signIn,
+                StaticText.signIn,
                 style: AppTextStyle.robotoBlackW700Size25,
               ),
               SizedBox(
@@ -82,7 +82,7 @@ class LogInScreenView extends GetView<LogInScreenController> {
               Container(
                 alignment: Alignment.centerRight,
                 child: Text(
-                  DynamicText.forgetPassword,
+                  StaticText.forgetPassword,
                   style: AppTextStyle.robotoGreyTextW400Size13,
                 ),
               ),
@@ -105,7 +105,7 @@ class LogInScreenView extends GetView<LogInScreenController> {
                         color: AppColors.logInButtonColor,
                         height: 60,
                         width: Get.width,
-                        text: DynamicText.logIn,
+                        text: StaticText.logIn,
                         textStyle: AppTextStyle.robotoWhiteTextW500Size17,
                       ),
               ),
@@ -140,7 +140,7 @@ class LogInScreenView extends GetView<LogInScreenController> {
               InkWell(
                 onTap: () => Get.toNamed(Routes.REGISTRATION_SCREEN),
                 child: Text(
-                  DynamicText.createNewAccount,
+                  StaticText.createNewAccount,
                   style: AppTextStyle.robotoBlackTextW300Size17,
                 ),
               ),

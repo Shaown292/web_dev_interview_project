@@ -15,7 +15,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
         child: ScaleTransition(
           scale: Tween<double>(begin: 0.5, end: 1.0).animate(
             CurvedAnimation(
-              parent: controller.animationController!,
+              parent: controller.animationController,
               curve: Curves.easeInOut,
 
             ),

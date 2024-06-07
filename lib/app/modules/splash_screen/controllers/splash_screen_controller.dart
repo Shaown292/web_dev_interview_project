@@ -26,7 +26,7 @@ class SplashScreenController extends GetxController with SingleGetTickerProvider
     animationController.addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         // Navigate to the next page
-        Get.offNamed("/log-in-screen");
+        Get.offNamed("/home");
       }
     });
 

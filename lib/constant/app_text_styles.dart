@@ -24,5 +24,11 @@ class AppTextStyle {
   static TextStyle robotoBlueTextW700Size17 = GoogleFonts.roboto(
     textStyle:  const TextStyle(color: AppColors.logInColor, fontSize: 17, fontWeight: FontWeight.w700),
   );
+  static TextStyle robotoBlueTextW700Size22 = GoogleFonts.roboto(
+    textStyle:  const TextStyle(color: AppColors.productListColor, fontSize: 22, fontWeight: FontWeight.w700),
+  );
+  static TextStyle latoGreyTextW400Size15 = GoogleFonts.lato(
+    textStyle:  const TextStyle(color: AppColors.filterColor, fontSize: 15, fontWeight: FontWeight.w400),
+  );
 
 }

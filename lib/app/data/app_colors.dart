@@ -7,6 +7,8 @@ class AppColors {
   static const logInButtonColor       = Color(0xFFF75F55);
   static const createAccountTextColor       = Color(0xFF383C40);
   static const logInColor       = Color(0xFF2893E3);
+  static const productListColor       = Color(0xFF222455);
+  static const filterColor       = Color(0xFF818995);
 
 
 }

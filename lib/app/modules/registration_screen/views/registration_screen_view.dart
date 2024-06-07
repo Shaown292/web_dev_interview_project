@@ -5,7 +5,7 @@ import 'package:web_dev_interview_project/app/data/app_colors.dart';
 import 'package:web_dev_interview_project/app/modules/registration_screen/controller/registration_screen_controller.dart';
 import 'package:web_dev_interview_project/app/routes/app_pages.dart';
 import 'package:web_dev_interview_project/constant/app_text_styles.dart';
-import 'package:web_dev_interview_project/constant/dynamicText.dart';
+import 'package:web_dev_interview_project/constant/static_text.dart';
 import 'package:web_dev_interview_project/widgets/customTextFormField.dart';
 import 'package:web_dev_interview_project/widgets/custom_button.dart';
 
@@ -152,7 +152,7 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                         color: AppColors.logInButtonColor,
                         height: 60,
                         width: Get.width,
-                        text: DynamicText.signUp,
+                        text: StaticText.signUp,
                         textStyle: AppTextStyle.robotoWhiteTextW500Size17,
                       ),
               ),
@@ -188,7 +188,7 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    DynamicText.alreadyHaveAnAccount,
+                    StaticText.alreadyHaveAnAccount,
                     style: AppTextStyle.robotoBlackTextW300Size17,
                   ),
                   const SizedBox(
@@ -197,7 +197,7 @@ class RegistrationScreenView extends GetView<RegistrationScreenController> {
                   InkWell(
                     onTap: () => Get.toNamed(Routes.LOG_IN_SCREEN),
                     child: Text(
-                      DynamicText.logIn,
+                      StaticText.logIn,
                       style: AppTextStyle.robotoBlueTextW700Size17,
                     ),
                   ),
