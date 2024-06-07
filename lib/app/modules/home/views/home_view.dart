@@ -16,7 +16,8 @@ class HomeView extends GetView<HomeController> {
   @override
   Widget build(BuildContext context) {
     final List<String> imageUrls = [
-      'https://via.placeholder.com/150', // Add your image URLs here
+      'https://cdn.photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg',
+      // Add your image URLs here
       'https://via.placeholder.com/150',
       'https://via.placeholder.com/150',
       'https://via.placeholder.com/150',
@@ -38,7 +39,7 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
         actions: [
           Container(
-            margin: const EdgeInsets.only(right: 15),
+              margin: const EdgeInsets.only(right: 15),
               child: Image.asset("assets/images/search_button.png")),
         ],
       ),
@@ -48,7 +49,6 @@ class HomeView extends GetView<HomeController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-
               /// Filter bar
               Container(
                 height: 60,
@@ -57,33 +57,55 @@ class HomeView extends GetView<HomeController> {
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
-                      color: const Color(0xFF395AB8).withOpacity(0.1), //color of shadow
-                      spreadRadius: 0, //spread radius
-                      blurRadius: 4, // blur radius
+                      color: const Color(0xFF395AB8).withOpacity(0.1),
+                      //color of shadow
+                      spreadRadius: 0,
+                      //spread radius
+                      blurRadius: 4,
+                      // blur radius
                       offset: const Offset(0, 3), // changes position of shadow
                     ),
                     //you can set more BoxShadow() here
                   ],
                 ),
-                child:  Padding(
+                child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Row(
                         children: [
-                          Image.asset("assets/images/filer_icon.png", scale: 4,),
-                          const SizedBox(width: 10,),
-                          Text(StaticText.filter, style: AppTextStyle.latoGreyTextW400Size15,),
+                          Image.asset(
+                            "assets/images/filer_icon.png",
+                            scale: 4,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          Text(
+                            StaticText.filter,
+                            style: AppTextStyle.latoGreyTextW400Size15,
+                          ),
                         ],
                       ),
-                       Row(
+                      Row(
                         children: [
-                          Text(StaticText.sortBy, style: AppTextStyle.latoGreyTextW400Size15,),
-                          const SizedBox(width: 5,),
-                          Image.asset("assets/images/down_arrow.png", ),
-                          const SizedBox(width: 20,),
-                          Image.asset("assets/images/three_line.png",),
+                          Text(
+                            StaticText.sortBy,
+                            style: AppTextStyle.latoGreyTextW400Size15,
+                          ),
+                          const SizedBox(
+                            width: 5,
+                          ),
+                          Image.asset(
+                            "assets/images/down_arrow.png",
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          Image.asset(
+                            "assets/images/three_line.png",
+                          ),
                         ],
                       ),
                     ],
@@ -91,23 +113,32 @@ class HomeView extends GetView<HomeController> {
                 ),
               ),
 
-              SizedBox(height: 20,),
+              const SizedBox(
+                height: 20,
+              ),
+
               /// Product show
 
               SizedBox(
                 height: Get.height - 100,
                 child: GridView.builder(
+                  shrinkWrap: true,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2, // Number of columns
                     crossAxisSpacing: 4.0,
                     mainAxisSpacing: 4.0,
+                    childAspectRatio: 0.5,
                   ),
                   itemCount: imageUrls.length,
                   itemBuilder: (context, index) {
-                    return ProductCard(image: imageUrls[index],);
+                    return ProductCard(
+                      image: imageUrls[index],
+                      numberOfStars: 3,
+                    );
                   },
                 ),
               ),
+
             ],
           ),
         ),
