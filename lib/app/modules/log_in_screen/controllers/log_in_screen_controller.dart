@@ -25,7 +25,7 @@ class LogInScreenController extends GetxController {
 
       if (response.statusCode == 200) {
         Get.snackbar("Welcome", "Log in successfully");
-        Get.offNamed("/home");
+        Get.offNamed("/dashboard");
         isLoading.value = false;
       } else {
 

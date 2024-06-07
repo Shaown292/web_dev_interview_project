@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:web_dev_interview_project/app/data/app_colors.dart';
+import 'package:web_dev_interview_project/app/modules/home/widgets/bottom_nav_bar.dart';
 import 'package:web_dev_interview_project/app/modules/home/widgets/product_card.dart';
 import 'package:web_dev_interview_project/constant/app_text_styles.dart';
 import 'package:web_dev_interview_project/constant/static_text.dart';
@@ -17,7 +18,6 @@ class HomeView extends GetView<HomeController> {
   Widget build(BuildContext context) {
     final List<String> imageUrls = [
       'https://cdn.photographylife.com/wp-content/uploads/2014/09/Nikon-D750-Image-Samples-2.jpg',
-      // Add your image URLs here
       'https://via.placeholder.com/150',
       'https://via.placeholder.com/150',
       'https://via.placeholder.com/150',
@@ -143,6 +143,7 @@ class HomeView extends GetView<HomeController> {
           ),
         ),
       ),
+
     );
   }
 }
